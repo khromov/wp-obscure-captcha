@@ -1,2 +1,2 @@
 # wp-obscure-captcha
-For internal use.
+Ssh, don't tell anyone about this plugin! :-)
