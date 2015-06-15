@@ -16,13 +16,13 @@ include 'obscure-functions.php';
  */
 add_filter('signup_captcha_questions_prefix', function($prefix)
 {
-	return __('KontrollfrÂga: ', 'user_registration_captcha') . '<br/>';
+	return __('Kontrollfr√•ga: ', 'user_registration_captcha') . '<br/>';
 });
 
 add_filter('signup_captcha_questions', function($questions)
 {
-	$questions['Vilken f‰rg har himlen?'] = 'blÂ';
-	$questions['Vilken f‰rg har sveriges flagga, fˆrutom blÂ?'] = 'gul';
+	$questions['Vilken f√§rg har himlen?'] = 'bl√•';
+	$questions['Vilken f√§rg har sveriges flagga, f√∂rutom bl√•?'] = 'gul';
 
 	return $questions;
 });
@@ -58,7 +58,7 @@ add_action('plugins_loaded', function()
 
 		/* If users magically filled out the hidden field, boot them */
 		if($postdata['signup_captcha_hp'] !== '')
-			$errors->add('signup_captcha_bot_error', __('<strong>FEL</strong>: Du rÂkade fylla i ett osynligt f‰lt! S‰ker pÂ att du inte ‰r en robot?'));
+			$errors->add('signup_captcha_bot_error', __('<strong>FEL</strong>: Du r√•kade fylla i ett osynligt f√§lt! S√§ker p√• att du inte √§r en robot?'));
 
 		/* Grab questions here via the same filter as we use for building the form */
 		$questions = apply_filters('signup_captcha_questions', array());
@@ -68,7 +68,7 @@ add_action('plugins_loaded', function()
 
 		/* If not a valid question or the answer is incorrect, add an error */
 		if($answer === NULL || strtolower($postdata['signup_captcha_answer']) !== strtolower($answer))
-			$errors->add('signup_captcha_wrong_answer',__('<strong>FEL</strong>: Svaret pÂ kontrollfrÂgan var felaktigt.'));
+			$errors->add('signup_captcha_wrong_answer',__('<strong>FEL</strong>: Svaret p√• kontrollfr√•gan var felaktigt.'));
 
 	}, 10, 3);
 
@@ -107,7 +107,7 @@ add_action('plugins_loaded', function()
 
 			/* If users magically filled out the hidden field, boot them */
 			if($postdata['signup_captcha_hp'] !== '')
-				$content['errors']->add('signup_captcha_bot_error', __('<strong>FEL</strong>: Du rÂkade fylla i ett osynligt f‰lt! S‰ker pÂ att du inte ‰r en robot?'));
+				$content['errors']->add('signup_captcha_bot_error', __('<strong>FEL</strong>: Du r√•kade fylla i ett osynligt f√§lt! S√§ker p√• att du inte √§r en robot?'));
 
 			/* Grab questions here via the same filter as we use for building the form */
 			$questions = apply_filters('signup_captcha_questions', array());
@@ -117,7 +117,7 @@ add_action('plugins_loaded', function()
 
 			/* If not a valid question or the answer is incorrect, add an error */
 			if($answer === NULL || strtolower($postdata['signup_captcha_answer']) !== strtolower($answer))
-				$content['errors']->add('signup_captcha_wrong_answer',__('<strong>FEL</strong>: Svaret pÂ kontrollfrÂgan var felaktigt.'));
+				$content['errors']->add('signup_captcha_wrong_answer',__('<strong>FEL</strong>: Svaret p√• kontrollfr√•gan var felaktigt.'));
 
 			return $content;
 		});
