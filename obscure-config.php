@@ -2,6 +2,7 @@
 return array(
 	'enabled_modules' => array(
 		//'registration',
+		//'disable-xmlrpc',
 		'login'
 	),
 	'captcha_questions' => array(

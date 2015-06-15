@@ -29,7 +29,6 @@ function oc_user_registration_captcha_render_form($question_prefix, $question, $
 			<br/>
 			<input type="text" name="signup_captcha_answer" value="<?=$answer?>" class="input" value="" size="20"><br/>
 			<input type="hidden" name="signup_captcha_question" value="<?=base64_encode($question)?>">
-			<input type="hidden" name="signup_captcha_check" value="">
 		</label>
 
 		<label id="signup_captcha_id">HP<br/>
@@ -86,7 +85,6 @@ function oc_default_registration_postdata($incoming_postdata) {
 		return array_merge(array(
 			'signup_captcha_answer' => '',
 			'signup_captcha_question' => '',
-			'signup_captcha_check' => '',
 			'signup_captcha_hp' => ''
 	), $incoming_postdata);
 }

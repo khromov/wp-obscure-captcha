@@ -2,10 +2,11 @@
 /*
 Plugin Name: Obscure CAPTCHA
 Plugin URI:
-Description: Shh, it's a secret!
+Description: Shh, this plugin is a secret! :-)
 Version: 1.0
 Author: khromov
 Author URI: http://profiles.wordpress.org/khromov/
+GitHub Plugin URI: khromov/wp-obscure-captcha
 License: GPL2
 */
 
