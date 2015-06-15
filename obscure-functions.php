@@ -2,11 +2,10 @@
 /**
  * Renders the registration CAPTCHA form
  *
-* @param $question_prefix
-* @param $question_html_entities
-* @param $question
-* @param null $errors
-* @param string $answer
+ * @param $question_prefix
+ * @param $question
+ * @param null $errors
+ * @param string $answer
  */
 function oc_user_registration_captcha_render_form($question_prefix, $question, $errors = null, $answer = '')
 {

@@ -1,7 +1,7 @@
 <?php
 return array(
 	'enabled_modules' => array(
-		'registration',
+		//'registration',
 		'login'
 	),
 	'captcha_questions' => array(
