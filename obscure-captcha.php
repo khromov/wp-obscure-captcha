@@ -48,8 +48,6 @@ add_action('plugins_loaded', function()
 	 */
 	add_action('register_post', function($login, $email, $errors)
 	{
-		//FIXME: CHECK IF THIS JUST WORKS or if we need check like in wpmu_validate_user_signup
-
 		/* Here we will set defaults for all the values we need */
 		$postdata = oc_default_registration_postdata($_POST);
 
@@ -66,8 +64,18 @@ add_action('plugins_loaded', function()
 		/* Check if what was submitted is a proper question and in such case, grab the answer */
 		$answer = (isset($questions[base64_decode($postdata['signup_captcha_question'])])) ? $questions[base64_decode($postdata['signup_captcha_question'])] : null;
 
+		/* Gracefully handle non-existant mb_ function */
+		$strtolower_func = function($in) {
+			if(function_exists('mb_strtolower')) {
+				return mb_strtolower($in);
+			}
+			else {
+				return strtolower($in);
+			}
+		};
+
 		/* If not a valid question or the answer is incorrect, add an error */
-		if($answer === NULL || strtolower($postdata['signup_captcha_answer']) !== strtolower($answer))
+		if($answer === NULL || $strtolower_func($postdata['signup_captcha_answer']) !== $strtolower_func($answer))
 			$errors->add('signup_captcha_wrong_answer',__('<strong>FEL</strong>: Svaret på kontrollfrågan var felaktigt.'));
 
 	}, 10, 3);
@@ -115,8 +123,18 @@ add_action('plugins_loaded', function()
 			/* Check if what was submitted is a proper question and in such case, grab the answer */
 			$answer = (isset($questions[base64_decode($postdata['signup_captcha_question'])])) ? $questions[base64_decode($postdata['signup_captcha_question'])] : null;
 
+			/* Gracefully handle non-existant mb_ function */
+			$strtolower_func = function($in) {
+				if(function_exists('mb_strtolower')) {
+					return mb_strtolower($in);
+				}
+				else {
+					return strtolower($in);
+				}
+			};
+
 			/* If not a valid question or the answer is incorrect, add an error */
-			if($answer === NULL || strtolower($postdata['signup_captcha_answer']) !== strtolower($answer))
+			if($answer === NULL || $strtolower_func($postdata['signup_captcha_answer']) !== $strtolower_func($answer))
 				$content['errors']->add('signup_captcha_wrong_answer',__('<strong>FEL</strong>: Svaret på kontrollfrågan var felaktigt.'));
 
 			return $content;
