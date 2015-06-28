@@ -1,5 +1,5 @@
 <?php
-return array(
+return apply_filters('obscure_captcha_settings', array(
 	'enabled_modules' => array(
 		//'registration',
 		//'disable-xmlrpc',
@@ -9,4 +9,4 @@ return array(
 		'Vilken färg har himlen?' => 'blå',
 		'Vilken färg har sveriges flagga, förutom blå?' => 'gul'
 	)
-);
+));
