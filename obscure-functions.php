@@ -27,7 +27,7 @@ function oc_user_registration_captcha_render_form($question_prefix, $question, $
 				<?=oc_convert_to_htmlentities($question)?>
 			</span>
 			<br/>
-			<input type="text" name="signup_captcha_answer" value="<?=$answer?>" class="input" value="" size="20"><br/>
+			<input type="text" name="signup_captcha_answer" value="<?=$answer?>" class="input" size="20"><br/>
 			<input type="hidden" name="signup_captcha_question" value="<?=base64_encode($question)?>">
 		</label>
 
