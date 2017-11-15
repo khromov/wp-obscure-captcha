@@ -1,8 +1,7 @@
 <?php
 return apply_filters('obscure_captcha_settings', array(
 	'enabled_modules' => array(
-		//'registration',
-		//'disable-xmlrpc',
+		'registration',
 		'login'
 	),
 	'captcha_questions' => array(
