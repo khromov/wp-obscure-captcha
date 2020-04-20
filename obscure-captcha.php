@@ -3,7 +3,7 @@
 Plugin Name: Obscure CAPTCHA
 Plugin URI:
 Description: Shh, this plugin is a secret! :-)
-Version: 1.0
+Version: 1.1
 Author: khromov
 Author URI: http://profiles.wordpress.org/khromov/
 GitHub Plugin URI: khromov/wp-obscure-captcha
